@@ -9,7 +9,7 @@ const generateTtoken = (id) => {
 };
 
 //Register user
-const register = async (req, res) => {
+export const register = async (req, res) => {
   try {
     //user details
     const { name, email, password } = req.body;
@@ -43,7 +43,7 @@ const register = async (req, res) => {
 };
 
 //Login user
-const login = async (req, res) => {
+export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
