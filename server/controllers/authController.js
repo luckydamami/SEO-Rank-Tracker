@@ -71,3 +71,17 @@ const login = async (req, res) => {
     res.status(500).json({ success: false, message: "Server error!" });
   }
 };
+
+
+export const getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.userId).select("-password");
+    if(!user){
+      return res.status(400).json({success: false, message: "User not found"});
+    }
+    res.json({success: true, user});
+  } catch (error) {
+    console.error("Register error: ", error.message);
+    res.status(500).json({ success: false, message: "Server error!" });
+  }
+};
